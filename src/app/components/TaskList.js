@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Checkbox, Button, List, ListItem, ListItemText } from "@mui/material";
+import { Checkbox, Button, List, ListItem, ListItemText, Typography } from "@mui/material";
 
 export default function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -14,32 +14,36 @@ export default function TaskList() {
   useEffect(() => { fetchTasks(); }, []);
 
   const toggleTaskCompletion = async (id, completed) => {
-    await fetch("/api/tasks", {
+    await fetch(`/api/tasks/${id}`, {  // Updated endpoint
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, completed }),
+      body: JSON.stringify({ completed }),
     });
     fetchTasks();
   };
 
   const deleteTask = async (id) => {
-    await fetch("/api/tasks", {
+    await fetch(`/api/tasks/${id}`, {  // Updated endpoint
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
     });
     fetchTasks();
   };
 
   return (
     <List>
-      {tasks.map((task) => (
-        <ListItem key={task._id} divider>
-          <Checkbox checked={task.completed} onChange={() => toggleTaskCompletion(task._id, !task.completed)} />
-          <ListItemText primary={task.title} secondary={task.description} />
-          <Button variant="contained" color="secondary" onClick={() => deleteTask(task._id)}>Delete</Button>
-        </ListItem>
-      ))}
+      {tasks.length === 0 ? (
+        <Typography variant="h6" color="textSecondary" align="center">
+          No tasks available. Add some!
+        </Typography>
+      ) : (
+        tasks.map((task) => (
+          <ListItem key={task._id} divider>
+            <Checkbox checked={task.completed} onChange={() => toggleTaskCompletion(task._id, !task.completed)} />
+            <ListItemText primary={task.title} secondary={task.description} />
+            <Button variant="contained" color="secondary" onClick={() => deleteTask(task._id)}>Delete</Button>
+          </ListItem>
+        ))
+      )}
     </List>
   );
 }

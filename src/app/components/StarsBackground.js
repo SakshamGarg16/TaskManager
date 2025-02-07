@@ -1,14 +1,15 @@
 "use client";
 
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
+import dynamic from "next/dynamic";
 import { useCallback } from "react";
+
+// Dynamically import tsparticles to prevent SSR issues
+const Particles = dynamic(() => import("react-tsparticles"), { ssr: false });
+import { loadSlim } from "tsparticles-slim";
 
 export default function LineCursorBackground() {
   const particlesInit = useCallback(async (engine) => {
-    if (typeof window !== "undefined") {
-      await loadSlim(engine);
-    }
+    await loadSlim(engine);
   }, []);
 
   return (
