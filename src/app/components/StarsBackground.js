@@ -6,7 +6,9 @@ import { useCallback } from "react";
 
 export default function LineCursorBackground() {
   const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
+    if (typeof window !== "undefined") {
+      await loadSlim(engine);
+    }
   }, []);
 
   return (
