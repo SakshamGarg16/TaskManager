@@ -3,15 +3,20 @@
 import { useState, useEffect } from "react";
 import { Button, List, ListItem, ListItemText, IconButton, MenuItem, Select } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
+
+// Dynamically import Lottie to prevent SSR issues
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import emptyAnimation from "../../../public/empty.json";
 
 export default function TaskManager() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all"); // Filter: "all", "completed", "pending"
   const [showForm, setShowForm] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true); // Ensuring client-side execution
     fetchTasks();
   }, []);
 
@@ -117,7 +122,9 @@ export default function TaskManager() {
             ))}
           </List>
         ) : (
-          <Lottie animationData={emptyAnimation} loop autoPlay style={{ width: 300, margin: "auto" }} />
+          isClient && (
+            <Lottie animationData={emptyAnimation} loop autoPlay style={{ width: 300, margin: "auto" }} />
+          )
         )}
       </div>
     </div>
