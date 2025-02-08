@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Management App
 
-## Getting Started
+![Task Management](https://user-images.githubusercontent.com/0000000/demo.gif)
 
-First, run the development server:
+🚀 A simple and efficient **Task Management App** built using **Next.js with Server Actions and MongoDB**. The app allows users to **add, update, and delete tasks** while maintaining data persistence.
 
+## 📌 Features
+- ✅ **Create, Read, Update, Delete (CRUD) operations**
+- 🎨 **Nice UI animations**
+- 🗄️ **MongoDB** for backend storage
+- 🌍 **Deployed on Vercel**
+- 🚀 **Optimized performance with Next.js**
+
+---
+
+## 🎥 Live Demo
+![Task Management App](https://user-images.githubusercontent.com/0000000/demo.gif)
+👉 **[Check it Live](https://task-manager-ten-inky-40.vercel.app/)**
+
+---
+
+## 📂 Folder Structure
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+📦 Task-Management-App
+ ┣ 📂 components
+ ┃ ┣ 📜 TaskItem.js
+ ┃ ┣ 📜 TaskList.js
+ ┃ ┗ 📜 AddTaskForm.js
+ ┣ 📂 pages
+ ┃ ┣ 📜 index.js
+ ┃ ┗ 📂 api
+ ┃   ┗ 📜 tasks.js
+ ┣ 📂 styles
+ ┃ ┗ 📜 globals.css
+ ┣ 📜 .env.local
+ ┣ 📜 package.json
+ ┣ 📜 README.md
+ ┗ 📜 next.config.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Installation & Setup
+```sh
+# Clone the repository
+git clone https://github.com/your-username/Task-Management-App.git
+cd Task-Management-App
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Install dependencies
+npm install
 
-## Learn More
+# Add MongoDB URL in .env.local
+MONGODB_URI=your_mongodb_connection_string
 
-To learn more about Next.js, take a look at the following resources:
+# Run the app locally
+npm run dev
+```
+Your app will be running on **http://localhost:3000** 🎉  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) 
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) 
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) 
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📜 API Endpoints
+| Method | Endpoint      | Description             |
+|--------|-------------|-------------------------|
+| GET    | `/api/tasks` | Fetch all tasks         |
+| POST   | `/api/tasks` | Add a new task          |
+| PATCH  | `/api/tasks/:id` | Update task status  |
+| DELETE | `/api/tasks/:id` | Remove a task        |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## 🎯 Upcoming Features
+- 🌟 **User Authentication**
+- 📆 **Task Due Dates & Reminders**
+- 📊 **Task Analytics Dashboard**
+
+---
+
+## 🙌 Contributing
+Contributions are welcome! If you’d like to improve this project:
+1. Fork the repo  
+2. Create a new branch (`feature-branch`)  
+3. Commit your changes (`git commit -m "Added new feature"`)  
+4. Push to the branch (`git push origin feature-branch`)  
+5. Open a **Pull Request** 🚀  
+
+---
+
+## ⭐ Show Some Love
+If you found this project helpful, please **⭐ Star** this repository!  
+[![GitHub stars](https://img.shields.io/github/stars/SakshamGarg16/TaskManager?style=social)](https://github.com/SakshamGarg16/TaskManager.git)  
+
+---
+
+🔗 **Connect with Me**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/garg-saksham/)  
+
